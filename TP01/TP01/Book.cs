@@ -61,6 +61,8 @@ namespace TP01
             foreach (Author aut in Authors) { auts += aut.Name + ","; }
             return auts;
         }
+
+        //Leonardo Pinto Teixeira e Gabriel Coutinho dos Santos
     }
 }
 

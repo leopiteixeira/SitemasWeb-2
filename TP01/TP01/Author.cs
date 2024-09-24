@@ -26,5 +26,7 @@ namespace TP01
             return $"Author[name={Name}, email={Email}, gender={Gender}]";
         }
 
+        //Leonardo Pinto Teixeira e Gabriel Coutinho dos Santos
+
     }
 }

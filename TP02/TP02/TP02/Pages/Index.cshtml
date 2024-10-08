@@ -1,0 +1,12 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1><br />
+    <a asp-action="Index" asp-controller="BLs" style="font-size:large; padding:50px">Lista de BLs</a>
+    <a asp-action="Index" asp-controller="Containers" style="font-size:large; padding:50px">Lista de Containers</a><br /><br /><br /><br /><br /><br />
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

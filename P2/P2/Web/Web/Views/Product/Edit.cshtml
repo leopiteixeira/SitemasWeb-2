@@ -1,0 +1,57 @@
+﻿@model UtilsApp.DTOs.ProductDTO
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Editar Produto</h1>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Campo Hidden para CreatedByUserId -->
+                <div class="form-group" style="display: none;">
+                    <input asp-for="CreatedByUserId" type="number" />
+                </div>
+
+                <!-- Nome do Produto -->
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label">Nome</label>
+                    <input asp-for="Name" class="form-control" placeholder="Digite o nome do produto" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Preço do Produto -->
+                <div class="form-group mb-3">
+                    <label asp-for="Price" class="form-label">Preço</label>
+                    <input asp-for="Price" class="form-control" type="number" min="0" placeholder="Digite o preço do produto" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <!-- Status do Produto -->
+                <div class="form-group mb-3 form-check">
+                    <input asp-for="Status" class="form-check-input" type="checkbox" />
+                    <label asp-for="Status" class="form-check-label">Produto Ativo</label>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <!-- Botão para Enviar o Formulário -->
+                <div class="form-group mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Editar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Adicionando Scripts de Validação do Bootstrap -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

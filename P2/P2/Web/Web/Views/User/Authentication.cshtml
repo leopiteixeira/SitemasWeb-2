@@ -1,0 +1,33 @@
+﻿@model AuthDTO
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="shadow-lg p-4 rounded bg-white" style="width: 350px;">
+        <h2 class="text-center mb-4 text-primary">Login</h2>
+        <form asp-action="Login" method="post">
+            <!-- Campo Login -->
+            <div class="form-group mb-3">
+                <label asp-for="Login" class="form-label text-secondary">Usuário</label>
+                <input asp-for="Login" class="form-control border-secondary" required />
+                <span asp-validation-for="Login" class="text-danger small"></span>
+            </div>
+
+            <!-- Campo Senha -->
+            <div class="form-group mb-4">
+                <label asp-for="Password" class="form-label text-secondary">Senha</label>
+                <input asp-for="Password" class="form-control border-secondary" type="password" required />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <!-- Botão -->
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+            <!-- Resumo de Validação -->
+            <div asp-validation-summary="All" class="text-danger small mt-3"></div>
+        </form>
+
+    </div>
+</div>

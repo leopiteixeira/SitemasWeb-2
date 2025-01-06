@@ -1,0 +1,63 @@
+﻿@model List<UtilsApp.DTOs.ProductDTO>
+
+@{
+    ViewData["Tittle"] = "Index";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Lista de Produtos</h1>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <p class="m-0">Gerencie seus produtos com facilidade.</p>
+        <a class="btn btn-success" asp-action="Create">
+            <i class="bi bi-plus-lg"></i> Criar Produto
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Status</th>
+                    <th>Criado Por</th>
+                    <th>Atualizado Por</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model!)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => product.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => product.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => product.Price)</td>
+                        <td>
+                            <span class="badge @(product.Status ? "bg-success" : "bg-secondary")">
+                                @Html.DisplayFor(modelItem => product.Status)
+                            </span>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => product.CreatedByUser)</td>
+                        <td>@Html.DisplayFor(modelItem => product.UpdatedByUser)</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-controller="Product" asp-route-id="@product.Id" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-fill"></i> Editar
+                                </a>
+                                <form asp-action="Delete" asp-controller="Product" asp-route-id="@product.Id" method="post" style="display: inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash-fill"></i> Excluir
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
